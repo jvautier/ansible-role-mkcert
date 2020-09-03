@@ -1,0 +1,16 @@
+---
+# https://github.com/FiloSottile/mkcert
+- name: Include ansible_distribution and ansible_os_family tasks
+  include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+
+- name: Install mkcert
+  when: mkcert_version is defined
+  get_url:
+    url: https://github.com/FiloSottile/mkcert/releases/download/v{{ mkcert_version }}/mkcert-v{{ mkcert_version }}-linux-amd64
+    dest: /usr/local/bin/mkcert
+    mode: 0777
+    force: true
+    timeout: 5

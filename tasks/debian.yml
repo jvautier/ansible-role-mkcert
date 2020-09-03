@@ -1,0 +1,9 @@
+---
+- name: install required packages
+  apt:
+    name: "{{ boxes_mkcert_package_name }}"
+    state: present
+  loop_control:
+    loop_var: boxes_mkcert_package_name
+  loop:
+    - libnss3-tools
