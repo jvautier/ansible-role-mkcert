@@ -1,0 +1,8 @@
+---
+fullname: jvautier/ansible-role-mkcert
+description: Install mkcert through ansible
+tags:
+  - ansible
+  - ansible-role
+  - mkcert
+github: {}
